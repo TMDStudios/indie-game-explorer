@@ -1,0 +1,295 @@
+*{margin: 0; padding: 0;}
+body {
+    background-color: #bababaae;
+    width: 80vw;
+    max-width: 1080px;
+    margin: auto;
+    font-family: sans-serif;
+}
+h1 {
+    text-align: center;
+}
+h4 {
+    font-size: 1.8em;
+    font-family: Georgia, serif;
+    color: #dedcde;
+    padding-bottom: 8px;
+}
+.gitHubImg {
+    text-align: center;
+    max-width: 150px;
+}
+h6 {
+    font-family: Georgia, serif;
+    color: #dedcde;
+    font-size: 1.2em;
+    padding-top: 8px;
+    text-align: center;
+}
+h4 a, h6 a {
+    text-decoration: none;
+    color: #dedcde;
+}
+h4 a:hover, h6 a:hover {
+    color: #335bdb;
+}
+.websiteInfo p {
+    color: #dedcde;
+}
+.tmdLogo {
+    height: 200px;
+    margin-bottom: -25px;
+}
+hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.intro {
+    padding: 8px;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #1b4860;
+}
+.intro a {
+    text-decoration: none;
+    color: #1b4860;
+}
+.intro a:hover {
+    cursor: pointer;
+    color:#335bdb;
+    text-decoration: underline;
+}
+.project {
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0,0,0, 0.75);
+    background-image: linear-gradient(to right, black, black, rgb(18, 18, 18), rgb(50, 50, 50));
+    box-shadow: 4px 4px 4px rgba(32, 32, 32, 0.5);
+    border-radius: 12px;
+    height: 496px;
+    align-items: center;
+
+    /* Disable Text Selection */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.project:hover {
+    box-shadow: 6px 6px 6px rgba(0, 0, 55, 0.75);
+}
+.prev {
+    color: rgba(255,255,255, 0.33);
+    font-size: 40px;
+    background-color: rgba(255,255,255, 0.25);
+    padding: 100% 4px 100% 6px;
+    border-radius: 12px 0px 0px 12px;
+}
+.prev:hover {
+    color: rgba(255,255,255, 0.66);
+    background-color: rgba(255,255,255, 0.5);
+    cursor: pointer;
+}
+.next {
+    color: rgba(255,255,255, 0.33);
+    font-size: 40px;
+    background-color: rgba(255,255,255, 0.25);
+    padding: 100% 6px 100% 4px;
+    border-radius: 0px 12px 12px 0px;
+}
+.next:hover {
+    color: rgba(255,255,255, 0.66);
+    background-color: rgba(255,255,255, 0.5);
+    cursor: pointer;
+}
+#websiteImg {
+    border-radius: 8px;
+    border: solid 1px rgba(123, 123, 123, 0.5);
+}
+#websiteImg:hover {
+    box-shadow: 3px 3px 3px rgba(123, 123, 123, 0.75);
+    cursor: pointer;
+}
+.videoContainer {
+    flex: 1;
+    padding: 8px 48px 8px 48px;
+    text-align: center;
+}
+.videoContainer img {
+    max-height: 480px;
+}
+.description {
+    flex: 2;
+    margin-top: 48px;
+    padding: 24px;
+    color: #dedcde;
+}
+.description p {
+    padding-top: 8px;
+}
+.description a {
+    text-decoration: none;
+    color: #dedcde;
+}
+.description a:hover {
+    cursor: pointer;
+    color:rgb(137, 181, 248);
+    text-decoration: underline;
+}
+.description img {
+    width: 240px;
+    padding-top: 16px;
+}
+.storeLink {
+    text-align: center;
+}
+.banner-div {
+    width: 60%; 
+    margin: auto; 
+    text-align: center;
+}
+.banner {
+    box-shadow: 0 0 0 0 rgb(87, 114, 187);
+    transition: 0.2s;
+    border-radius: 8px;
+    margin-top: 48px;
+    max-width: 100%;
+}
+.banner:hover {
+    box-shadow: 0 0 12px 0 rgb(137, 181, 248);
+}
+
+/* MODAL */
+.modal {
+    border: 2px solid black;
+    width: 60%;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal::backdrop {
+    background: linear-gradient(45deg, rgb(200, 18, 18), green);
+    opacity: .4;
+}
+#modal_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 4px;
+}
+#modal_content div {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+}
+#addGameForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#addGameForm input, #addGameForm select, #cancelBtn {
+    flex: 1;
+    padding: 8px;
+    font-size: 1.2em;
+    border: solid rgba(0, 0, 0, 0.2) 1px;
+    border-radius: 4px;
+    margin: 4px;
+}
+#addBtn, #cancelBtn {
+    background-color: #243763;
+    color: white;
+}
+#cancelBtn {
+    text-decoration: none;
+    text-align: center;
+}
+#addBtn:hover, #cancelBtn:hover {
+    background-color: #172035;
+    color: white;
+    cursor: pointer;
+}
+
+@media all and (max-width: 550px){
+    body {
+        width: 96vw;
+        max-width: 96vw;
+        height: var(--app-height);
+    }
+    .tmdLogo {
+        height: 100px;
+        margin-top: -8px;
+    }
+    .intro {
+        margin-bottom: 2px;
+    }
+    .introPt1, .introPt2, .description {
+        display: none;
+    }
+    .project {
+        width: 100%;
+        height: 50%;
+        background-image: linear-gradient(to right, black, black);
+        overflow: hidden;
+        align-items: center;
+    }
+    #websiteImg {
+        max-width: 90%;
+        margin-top: 5%;
+    }
+    .videoContainer {
+        padding: 0px;
+        text-align: center;
+        height: 100%;
+    }
+    .videoContainer img {
+        max-height: 96%;
+        padding-top: 2%;
+    }
+    #video {
+        width: 80%;
+        max-height: 100%;
+        padding: 0px;
+    }
+    .prev {
+        color: rgba(255,255,255, 0.25);
+        background-color: rgba(255,255,255, 0.15);
+    }
+    .next {
+        color: rgba(255,255,255, 0.25);
+        background-color: rgba(255,255,255, 0.15);
+    }
+    .prev:hover, .next:hover {
+        color: rgba(255,255,255, 0.5);
+        background-color: rgba(255,255,255, 0.25);
+    }
+    .mobileLink img {
+        width: 180px;
+        padding-top: 16px;
+    }
+    .websiteInfo{
+        margin-top: 16px;
+        padding: 8px;
+    }
+    .websiteInfo h4{
+        font-size: 1.4em;
+        padding-top: 16px;
+    }
+    .websiteInfo p{
+        font-size: 0.8em;
+        padding-top: 12px;
+    }
+    .banner-div {
+        width: 90%; 
+    }
+    .banner {
+        margin-top: 24px;
+        max-width: 100%;
+    }
+}
+@media all and (min-width: 551px){
+    .introAlt, .mobileLink {
+        display: none;
+    }
+}

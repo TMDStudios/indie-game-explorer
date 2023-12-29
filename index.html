@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow" />
+    <meta property="og:image" content="https://tmdstudios.files.wordpress.com/2023/01/logo-copy.png" />
+    <meta property="og:title" content="Indie Game Explorer">
+    <meta name="description" property="og:description" content="Browse an ever-growing collection of undiscovered indie games.">
+    <meta name="twitter:card" value="summary">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="media/favicon.ico?" type="image/x-icon" />
+    <title>TMD Studios</title>
+</head>
+<body>
+    <div>
+        <h1><a href="https://tmdstudios.github.io/"><img class="tmdLogo" src="media/tmdLogo.png"></a></h1>
+    </div>
+
+    <div class="intro">
+        <p class="introPt1">This page provides a curated collection of undiscovered indie games for your enjoyment.</p>
+        <p class="introPt2"><a href="#" onclick="addGame()">Click here</a> to add a game.</p>
+        <p class="introAlt"><a href="#" onclick="addGame()">Click here</a> to add a game.</p>
+    </div>
+    
+    <div class="project">
+        <p onclick="prevApp()" class="prev">&lt;</p>
+        <div class="videoContainer" id="mediaContainer">
+            <iframe id="video" width="315" height="560"
+                src="https://www.youtube.com/embed/9MBChUsqMy8?autoplay=1&mute=1&loop=1"
+                title="Block Wars"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="description">
+            <div id="description">
+                <h4 id="name">Block Wars</h4>
+                <p><em>Arcade</em></p>
+                <p><br></p>
+                <p>Battle enemy ships in a shrinking environment.</p>
+                <p><a href="https://tmdstudios.github.io/">Official Site</a></p>
+            </div>
+            <p class="storeLink" id="link"><a href="https://play.google.com/store/apps/details?id=com.tmdstudios.blockwars"><img src="media/googleBanner.png"/></a></p>
+        </div>
+        <p onclick="nextApp()" class="next">&gt;</p>
+    </div>
+
+    <div class="mobileLink" id="mobileLink">
+        <p class="storeLink" id="link"><a href="https://play.google.com/store/apps/details?id=com.tmdstudios.blockwars"><img src="media/googleBanner.png"/></a></p>
+    </div>
+
+    <div class="banner-div">
+        <a href="https://freebitco.in/?r=15749838"><img class="banner" src="media/bitcoinbanner.png"/></a>
+    </div>
+
+    <dialog class="modal" id="modal">
+        <div id="modal_content">
+            <div>
+                <form method="POST" id="addGameForm">
+                    <input type="text" id="name" placeholder="Name">
+                    <input type="text" id="description" placeholder="Description (up to 255 characters)">
+                    <input type="text" id="website" placeholder="Website (optional)">
+                    <input type="text" id="app_store" placeholder="App Store Link (optional)">
+                    <input type="text" id="google_play" placeholder="Google Play Link (optional)">
+                    <input type="text" id="video" placeholder="YouTube Short Id (optional)">
+                    <input type="text" id="image" placeholder="Image Link">
+                    <select name="genre" id="genre">
+                        <option value="Arcade">Genre</option>
+                        <option value="Arcade">Arcade</option>
+                        <option value="Casual">Casual</option>
+                        <option value="Educational">Educational</option>
+                        <option value="Puzzle">Puzzle</option>
+                        <option value="Racing">Racing</option>
+                        <option value="Role Playing">Role Playing</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Strategy">Strategy</option>
+                    </select>
+                    <input type="submit" value="Add Game" id="addBtn">
+                    <a href="#" id="cancelBtn">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>
