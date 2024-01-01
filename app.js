@@ -114,8 +114,27 @@ let gameForm = document.getElementById("addGameForm");
 gameForm.onsubmit = function(e){
     e.preventDefault()
     console.log("Submit Game");
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "https://devroboto.pythonanywhere.com/games/add/");
+    xhttp.onload = function(){
+        alert("Game submitted")
+    }
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    if(document.getElementById('gameName').value.length>0){
+        xhttp.send("name="+document.getElementById('gameName').value+
+        "&description="+document.getElementById('gameDescription').value+
+        "&website="+document.getElementById('gameWebsite').value+
+        "&app_store="+document.getElementById('app_store').value+
+        "&google_play="+document.getElementById('google_play').value+
+        "&video="+document.getElementById('gameVideo').value+
+        "&image="+document.getElementById('gameImage').value+
+        "&genre="+document.getElementById('genre').value
+        );
+    }else{
+        alert("Game Name must be provided")
+    }
     document.getElementById("modal").close();
-    alert("Game submitted")
 }
 document.getElementById("cancelBtn").addEventListener('click', () => {
     document.getElementById("modal").close();
