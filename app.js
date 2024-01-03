@@ -2,7 +2,7 @@ let apps = []
 
 function getApps(){
     const request = new XMLHttpRequest();
-    request.open("GET", "https://raw.githubusercontent.com/TMDStudios/json_files/main/indie_games.json");
+    request.open("GET", "https://devroboto.pythonanywhere.com/games/");
     request.onload = function(){
         console.log("Got the apps")
         const data = JSON.parse(request.response);
@@ -85,6 +85,11 @@ function nextApp(){
 }
 
 function showApp(){
+    console.log(Number.isNaN(parseInt(apps[currentApp].google_play)))
+    console.log(Number.isNaN(parseInt(apps[currentApp].app_store)))
+    const googlePlayLink = Number.isNaN(parseInt(apps[currentApp].google_play)) ? apps[currentApp].google_play : "#";
+    const appStoreLink = Number.isNaN(parseInt(apps[currentApp].app_store)) ? apps[currentApp].app_store : "#";
+
     document.getElementById("description").innerHTML = `
         <h4>${apps[currentApp].name}</h4>
         <p><em>${apps[currentApp].genre}</em></p>
@@ -92,7 +97,10 @@ function showApp(){
         <p>${apps[currentApp].description}</p>
         <p><a href='${apps[currentApp].website}'>Official Website</a></p>
     `;
-    document.getElementById("link").innerHTML = `<a href="${apps[currentApp].google_play}"><img src="media/googleBanner.png"/></a>`;
+    document.getElementById("link").innerHTML = `
+        <a href="${googlePlayLink}"><img src="media/googleBanner.png"/></a>
+        <a href="${appStoreLink}"><img id="appStoreLogo" src="media/appleBanner.png"/></a>
+    `;
     document.getElementById("video").setAttribute("src", `https://www.youtube.com/embed/${apps[currentApp].video}?autoplay=1&mute=1&loop=1`);
     document.getElementById("video").setAttribute("title", apps[currentApp].name);
 }
@@ -121,7 +129,9 @@ gameForm.onsubmit = function(e){
         alert("Game submitted")
     }
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    if(document.getElementById('gameName').value.length>0){
+    if(document.getElementById('gameName').value.length>0
+    && document.getElementById('gameDescription').value.length>0
+    && document.getElementById('gameImage').value.length>0){
         xhttp.send("name="+document.getElementById('gameName').value+
         "&description="+document.getElementById('gameDescription').value+
         "&website="+document.getElementById('gameWebsite').value+
@@ -132,7 +142,7 @@ gameForm.onsubmit = function(e){
         "&genre="+document.getElementById('genre').value
         );
     }else{
-        alert("Game Name must be provided")
+        alert("Game Name, Description, and Image must be provided")
     }
     document.getElementById("modal").close();
 }
