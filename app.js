@@ -75,7 +75,6 @@ function prevApp(){
 }
 
 function nextApp(){
-    console.log(apps[0].name)
     if(currentApp<apps.length-1){
         currentApp++;
     }else{
@@ -85,8 +84,6 @@ function nextApp(){
 }
 
 function showApp(){
-    console.log(Number.isNaN(parseInt(apps[currentApp].google_play)))
-    console.log(Number.isNaN(parseInt(apps[currentApp].app_store)))
     const googlePlayLink = Number.isNaN(parseInt(apps[currentApp].google_play)) ? apps[currentApp].google_play : "#";
     const appStoreLink = Number.isNaN(parseInt(apps[currentApp].app_store)) ? apps[currentApp].app_store : "#";
 
@@ -97,10 +94,22 @@ function showApp(){
         <p>${apps[currentApp].description}</p>
         <p><a href='${apps[currentApp].website}'>Official Website</a></p>
     `;
-    document.getElementById("link").innerHTML = `
-        <a href="${googlePlayLink}"><img src="media/googleBanner.png"/></a>
-        <a href="${appStoreLink}"><img id="appStoreLogo" src="media/appleBanner.png"/></a>
-    `;
+    if(googlePlayLink=="#"){
+        document.getElementById("link").innerHTML = `<a href="${appStoreLink}"><img src="media/appleBanner.png"/></a>`;
+        document.getElementById("mobileStoreLink").innerHTML = `<a href="${appStoreLink}"><img src="media/appleBanner.png"/></a>`;
+    }else if(appStoreLink=="#"){
+        document.getElementById("link").innerHTML = `<a href="${googlePlayLink}"><img src="media/googleBanner.png"/></a>`;
+        document.getElementById("mobileStoreLink").innerHTML = `<a href="${googlePlayLink}"><img src="media/googleBanner.png"/></a>`;
+    }else{
+        document.getElementById("link").innerHTML = `
+            <a href="${googlePlayLink}"><img src="media/googleBanner.png"/></a>
+            <a href="${appStoreLink}"><img src="media/appleBanner.png"/></a>
+        `;
+    document.getElementById("mobileStoreLink").innerHTML = `
+            <a href="${googlePlayLink}"><img src="media/googleBanner.png"/></a>
+            <a href="${appStoreLink}"><img src="media/appleBanner.png"/></a>
+        `;
+    }
     document.getElementById("video").setAttribute("src", `https://www.youtube.com/embed/${apps[currentApp].video}?autoplay=1&mute=1&loop=1`);
     document.getElementById("video").setAttribute("title", apps[currentApp].name);
 }
